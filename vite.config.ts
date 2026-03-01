@@ -58,8 +58,8 @@
   port: 3000,
   host: true,
   allowedHosts: [
-    'moteltrips.com',
-    'www.moteltrips.com'
+    'tripways.in,
+    'www.tripways.in'
   ],
 },
 
