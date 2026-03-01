@@ -58,7 +58,7 @@
   port: 3000,
   host: true,
   allowedHosts: [
-    'tripways.in,
+    'tripways.in',
     'www.tripways.in'
   ],
 },
