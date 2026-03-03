@@ -279,7 +279,7 @@ export default function HowItWorksPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl mb-4 font-black">Why Choose MotelTrips?</h2>
+            <h2 className="text-5xl mb-4 font-black">Why Choose Tripways?</h2>
             <p className="text-xl text-gray-300">Premium features for a seamless booking experience</p>
           </motion.div>
 
@@ -337,7 +337,7 @@ export default function HowItWorksPage() {
           >
             <h2 className="text-5xl text-white mb-6 font-black">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Join thousands of travelers who trust MotelTrips for their accommodation needs
+              Join thousands of travelers who trust Tripways for their accommodation needs
             </p>
             <motion.a
               href="/"

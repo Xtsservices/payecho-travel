@@ -26,8 +26,8 @@ export default function LoginPage() {
 
   const roles = [
     { value: 'admin' as UserRole, label: 'Admin', icon: Shield, color: 'from-purple-500 to-pink-500' },
-    { value: 'motel' as UserRole, label: 'Motel Owner', icon: Building2, color: 'from-cyan-500 to-blue-600' },
-    { value: 'user' as UserRole, label: 'User', icon: User, color: 'from-cyan-500 to-blue-600' }
+    { value: 'motel' as UserRole, label: 'Motel Owner', icon: Building2, color: 'from-orange-500 to-red-600' },
+    { value: 'user' as UserRole, label: 'User', icon: User, color: 'from-orange-500 to-red-600' }
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -80,12 +80,12 @@ if (user.redirectTo) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-slate-900 via-orange-900 to-red-900 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-          <div className="absolute top-40 right-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 left-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
+          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
+          <div className="absolute top-40 right-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute bottom-20 left-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
         </div>
 
         <motion.div 
@@ -95,7 +95,7 @@ if (user.redirectTo) {
           transition={{ duration: 0.6 }}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-6 sm:p-8 text-white text-center">
+          <div className="bg-gradient-to-r from-orange-500 to-red-600 p-6 sm:p-8 text-white text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -169,7 +169,7 @@ if (user.redirectTo) {
                       onClick={() => setSelectedRole('motel')}
                       className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
                         selectedRole === 'motel'
-                          ? 'bg-gradient-to-br from-cyan-500 to-blue-600 border-transparent shadow-lg'
+                          ? 'bg-gradient-to-br from-orange-500 to-red-600 border-transparent shadow-lg'
                           : 'border-gray-200 bg-gray-50 hover:bg-gray-100'
                       }`}
                       whileHover={{ scale: 1.03 }}
@@ -222,7 +222,7 @@ if (user.redirectTo) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition-all"
+                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-all"
                     placeholder={loginMode === 'user' ? 'your.email@example.com' : 'business@moteltrips.com'}
                   />
                 </div>
@@ -243,7 +243,7 @@ if (user.redirectTo) {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition-all"
+                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-all"
                     placeholder="••••••••"
                   />
                   <button
@@ -264,12 +264,12 @@ if (user.redirectTo) {
                 transition={{ delay: 0.8 }}
               >
                 <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-cyan-600 cursor-pointer" />
+                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-orange-600 cursor-pointer" />
                   <span>Remember me</span>
                 </label>
                 <Link 
                   to="/forgot-password" 
-                  className="text-cyan-600 hover:text-cyan-700 transition-colors cursor-pointer font-semibold"
+                  className="text-orange-600 hover:text-orange-700 transition-colors cursor-pointer font-semibold"
                 >
                   Forgot Password?
                 </Link>
@@ -281,7 +281,7 @@ if (user.redirectTo) {
                 className={`w-full py-3.5 rounded-xl font-black text-white shadow-lg cursor-pointer bg-gradient-to-r ${
                   selectedRole === 'admin' 
                     ? 'from-purple-500 to-pink-500' 
-                    : 'from-cyan-500 to-blue-600'
+                    : 'from-orange-500 to-red-600'
                 } hover:shadow-xl transition-all`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -304,7 +304,7 @@ if (user.redirectTo) {
                 Don't have an account?{' '}
                 <Link 
                   to="/signup"
-                  className="text-cyan-600 font-semibold hover:underline cursor-pointer"
+                  className="text-orange-600 font-semibold hover:underline cursor-pointer"
                 >
                   Sign Up
                 </Link>
@@ -313,7 +313,7 @@ if (user.redirectTo) {
                 Want to list your motel?{' '}
                 <Link 
                   to="/partner"
-                  className="text-cyan-600 font-semibold hover:underline cursor-pointer"
+                  className="text-orange-600 font-semibold hover:underline cursor-pointer"
                 >
                   Register as Partner
                 </Link>

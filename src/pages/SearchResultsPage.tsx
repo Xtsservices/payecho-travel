@@ -148,7 +148,7 @@ console.log('SearchResultsPage render with location:', location, 'checkIn:', che
         canonicalUrl={`https://moteltrips.com/search?location=${encodeURIComponent(location)}`}
       />
       {/* Search Section */}
-      <section className="bg-gradient-to-br from-cyan-500 to-blue-600 py-3 sm:py-4 lg:py-6 px-4 sm:px-6">
+      <section className="bg-gradient-to-br from-orange-500 to-red-600 py-3 sm:py-4 lg:py-6 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="text-white">
@@ -196,7 +196,7 @@ console.log('SearchResultsPage render with location:', location, 'checkIn:', che
         {/* Mobile filter button */}
         <motion.button
           onClick={() => setShowMobileFilters(true)}
-          className="lg:hidden fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-4 rounded-full shadow-2xl z-40 flex items-center gap-2 cursor-pointer"
+          className="lg:hidden fixed bottom-6 right-6 bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 rounded-full shadow-2xl z-40 flex items-center gap-2 cursor-pointer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
