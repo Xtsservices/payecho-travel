@@ -145,12 +145,12 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-slate-900 via-orange-900 to-red-900 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-          <div className="absolute top-40 right-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 left-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
+          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
+          <div className="absolute top-40 right-10 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute bottom-20 left-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
         </div>
 
         <motion.div 
@@ -160,7 +160,7 @@ export default function SignupPage() {
           transition={{ duration: 0.6 }}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-4 sm:p-6 text-white text-center">
+          <div className="bg-gradient-to-r from-orange-500 to-red-600 p-4 sm:p-6 text-white text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -171,7 +171,7 @@ export default function SignupPage() {
               </div>
             </motion.div>
             <h1 className="text-xl sm:text-2xl mb-1 font-black">Create Account</h1>
-            <p className="text-xs sm:text-sm text-white/90">Join MotelTrips today</p>
+            <p className="text-xs sm:text-sm text-white/90">Join Tripways today</p>
           </div>
 
           {/* Form Container with Padding */}
@@ -196,7 +196,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-3 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                      errors.first_name ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                      errors.first_name ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                     }`}
                     placeholder="John"
                   />
@@ -220,7 +220,7 @@ export default function SignupPage() {
                       onChange={handleChange}
                       required
                       className={`w-full pl-10 pr-3 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                        errors.last_name ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                        errors.last_name ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                       }`}
                       placeholder="Doe"
                     />
@@ -245,7 +245,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-3 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                     }`}
                     placeholder="your.email@example.com"
                   />
@@ -268,7 +268,7 @@ export default function SignupPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-3 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                      errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                      errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                     }`}
                     placeholder="+1 (555) 123-4567"
                   />
@@ -292,7 +292,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-10 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                      errors.password ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                      errors.password ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                     }`}
                     placeholder="••••••••"
                   />
@@ -323,7 +323,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-10 py-2 bg-white border-2 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all ${
-                      errors.confirm_password ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-cyan-500'
+                      errors.confirm_password ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-orange-500'
                     }`}
                     placeholder="••••••••"
                   />
@@ -342,7 +342,7 @@ export default function SignupPage() {
               <motion.button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-2.5 mt-4 rounded-lg font-black text-white shadow-lg cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                className="w-full py-2.5 mt-4 rounded-lg font-black text-white shadow-lg cursor-pointer bg-gradient-to-r from-orange-500 to-red-600 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
@@ -364,7 +364,7 @@ export default function SignupPage() {
                 Already have an account?{' '}
                 <Link 
                   to="/login"
-                  className="text-cyan-600 font-semibold hover:underline cursor-pointer"
+                  className="text-orange-600 font-semibold hover:underline cursor-pointer"
                 >
                   Sign In
                 </Link>

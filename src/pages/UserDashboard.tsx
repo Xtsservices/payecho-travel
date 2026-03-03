@@ -314,25 +314,29 @@ export default function UserDashboard() {
       label: 'Total Bookings', 
       value: String(dashboardStats.total_bookings), 
       icon: Calendar, 
-      color: 'from-cyan-500 to-blue-600' 
+      color: 'from-orange-500 to-orange-700',
+      iconColor: 'text-white'
     },
     { 
       label: 'Upcoming Trips', 
       value: String(dashboardStats.upcoming_trips), 
       icon: Clock, 
-      color: 'from-cyan-500 to-blue-600' 
+      color: 'from-orange-500 to-orange-700',
+      iconColor: 'text-white'
     },
     { 
       label: 'Completed Trips', 
       value: String(dashboardStats.completed_trips), 
       icon: CheckCircle, 
-      color: 'from-cyan-500 to-blue-600' 
+      color: 'from-orange-500 to-orange-700',
+      iconColor: 'text-white'
     },
     { 
       label: 'Total Spent', 
       value: dashboardStats.total_spent, 
       icon: CreditCard, 
-      color: 'from-cyan-500 to-blue-600' 
+      color: 'from-orange-500 to-orange-700',
+      iconColor: 'text-white'
     }
   ];
 
@@ -436,12 +440,12 @@ export default function UserDashboard() {
   // User section for sidebar
   const userSection = (
     <div className="flex items-center gap-2">
-      <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-        <User className="w-5 h-5 text-white" />
+      <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+        <User className="w-5 h-5 text-orange-600" />
       </div>
       <div className="min-w-0 xl:block lg:hidden">
-        <p className="font-semibold truncate text-xs">{userInfo.name}</p>
-        <p className="text-xs text-white/70 truncate">{userInfo.email}</p>
+        <p className="font-semibold truncate text-xs text-orange-600">{userInfo.name}</p>
+        <p className="text-xs text-orange-500 truncate">{userInfo.email}</p>
       </div>
     </div>
   );
@@ -468,15 +472,15 @@ export default function UserDashboard() {
           userName={userInfo.name}
           userEmail={userInfo.email}
           userRole="Guest"
-          avatarIcon={<User className="w-5 h-5 text-white" />}
-          avatarGradient="from-cyan-400 to-blue-500"
+          avatarIcon={<User className="w-5 h-5 text-orange-600" />}
+          avatarGradient="from-orange-400 to-orange-600"
           onChangePassword={() => setShowChangePasswordModal(true)}
           onUpdateProfile={() => setShowUpdateProfileModal(true)}
           onLogout={handleLogout}
           rightContent={(
             <button
               onClick={() => navigate('/')}
-              className="px-2 py-1 text-xs bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all cursor-pointer whitespace-nowrap font-semibold shadow-md"
+              className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-all cursor-pointer whitespace-nowrap font-semibold shadow-md"
             >
               + New
             </button>
@@ -515,7 +519,7 @@ export default function UserDashboard() {
                   placeholder="Search bookings..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-cyan-500 text-sm"
+                  className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm"
                 />
               </div>
 
@@ -527,7 +531,7 @@ export default function UserDashboard() {
                     onClick={() => setFilterType(filter.type)}
                     className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                       filterType === filter.type
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                        ? 'bg-orange-100 text-orange-700 shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -542,14 +546,14 @@ export default function UserDashboard() {
           <div className="space-y-3">
             {filteredBookings.length === 0 ? (
               <motion.div
-                className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl shadow-lg p-8 sm:p-12 text-center border border-cyan-100"
+                className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-lg p-8 sm:p-12 text-center border border-orange-100"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <Calendar className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
+                  <Calendar className="w-10 h-10 text-orange-600" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black mb-2 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                <h3 className="text-xl sm:text-2xl font-black mb-2 text-orange-600">
                   {searchQuery || filterType !== 'all' ? 'No bookings found' : 'Start Your Journey!'}
                 </h3>
                 <p className="text-gray-600 mb-6 max-w-md mx-auto">
@@ -563,14 +567,14 @@ export default function UserDashboard() {
                       setFilterType('all');
                       setSearchQuery('');
                     }}
-                    className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all cursor-pointer font-semibold shadow-md text-xs"
+                    className="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-all cursor-pointer font-semibold shadow-md text-xs"
                   >
                     Clear Filters
                   </button>
                 ) : (
                   <button
                     onClick={() => navigate('/')}
-                    className="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all cursor-pointer font-semibold shadow-md text-xs"
+                    className="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition-all cursor-pointer font-semibold shadow-md text-xs"
                   >
                     Browse Motels
                   </button>
@@ -601,7 +605,7 @@ export default function UserDashboard() {
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            <h3 className="text-sm font-black truncate">{booking.motelName}</h3>
+                            <h3 className="text-sm font-black text-orange-700 truncate">{booking.motelName}</h3>
                             <span className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${
                               booking.status === 'pending' ? 'bg-orange-100 text-orange-700' :
                               booking.status === 'confirmed' ? 'bg-blue-100 text-blue-700' :
@@ -614,36 +618,36 @@ export default function UserDashboard() {
                             </span>
                           </div>
                           <div className="flex items-center gap-1 text-gray-600 text-xs">
-                            <MapPin className="w-3 h-3 text-cyan-600" />
-                            <span>{booking.location}</span>
-                            <span className="text-gray-400 mx-1">•</span>
-                            <span className="text-gray-500">{booking.confirmationNumber}</span>
+                            <MapPin className="w-3 h-3 text-orange-600" />
+                            <span className="text-orange-600">{booking.location}</span>
+                            <span className="text-orange-400 mx-1">•</span>
+                            <span className="text-orange-500">{booking.confirmationNumber}</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-lg font-black text-cyan-600">${booking.totalAmount}</p>
+                          <p className="text-lg font-black text-orange-600">${booking.totalAmount}</p>
                         </div>
                       </div>
 
                       {/* Details Grid - Inline */}
                       <div className="flex flex-wrap gap-x-4 gap-y-1 mb-2 text-xs text-gray-600">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3 text-cyan-600" />
-                          <span className="font-semibold text-gray-900">{new Date(booking.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                          <span>→</span>
-                          <span className="font-semibold text-gray-900">{new Date(booking.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                          <Calendar className="w-3 h-3 text-orange-600" />
+                          <span className="font-semibold text-orange-600">{new Date(booking.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                          <span className="text-orange-500">→</span>
+                          <span className="font-semibold text-orange-600">{new Date(booking.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Home className="w-3 h-3 text-cyan-600" />
-                          <span>{booking.rooms} Room{booking.rooms > 1 ? 's' : ''}</span>
+                          <Home className="w-3 h-3 text-orange-600" />
+                          <span className="text-orange-600">{booking.rooms} Room{booking.rooms > 1 ? 's' : ''}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-cyan-600" />
-                          <span>{calculateNights(booking.checkIn, booking.checkOut)} Night{calculateNights(booking.checkIn, booking.checkOut) > 1 ? 's' : ''}</span>
+                          <Clock className="w-3 h-3 text-orange-600" />
+                          <span className="text-orange-600">{calculateNights(booking.checkIn, booking.checkOut)} Night{calculateNights(booking.checkIn, booking.checkOut) > 1 ? 's' : ''}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Users className="w-3 h-3 text-cyan-600" />
-                          <span>{booking.adults} Adult{booking.adults > 1 ? 's' : ''} • {booking.children} Child{booking.children !== 1 ? 'ren' : ''}</span>
+                          <Users className="w-3 h-3 text-orange-600" />
+                          <span className="text-orange-600">{booking.adults} Adult{booking.adults > 1 ? 's' : ''} • {booking.children} Child{booking.children !== 1 ? 'ren' : ''}</span>
                         </div>
                       </div>
 
@@ -810,10 +814,10 @@ export default function UserDashboard() {
             className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-6 sticky top-0 z-10 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-orange-400 to-orange-600 text-white p-6 sticky top-0 z-10 flex items-center justify-between">
               <div>
                 <h3 className="text-2xl font-bold">{selectedBookingForDetails.motelName}</h3>
-                <p className="text-cyan-100 mt-1 flex items-center gap-1">
+                <p className="text-orange-100 mt-1 flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
                   {selectedBookingForDetails.location}
                 </p>
@@ -865,7 +869,7 @@ export default function UserDashboard() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-600 font-semibold">Confirmation Number</p>
-                    <p className="text-gray-800 font-semibold text-cyan-600">{selectedBookingForDetails.confirmationNumber}</p>
+                    <p className="text-gray-800 font-semibold text-orange-600">{selectedBookingForDetails.confirmationNumber}</p>
                   </div>
                 </div>
               </div>

@@ -131,7 +131,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div className="flex-1 min-w-0">
@@ -187,7 +187,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                             }}
                             className="w-full flex items-center gap-3 p-3 md:p-4 rounded-lg hover:bg-gray-50 transition-colors text-left"
                           >
-                            <MapPin className="w-4 h-4 text-cyan-600 flex-shrink-0" />
+                            <MapPin className="w-4 h-4 text-orange-600 flex-shrink-0" />
                             <div className="flex-1">
                               <span className="text-sm md:text-base text-gray-700 block">{locality.name}, {locality.city_name}, {locality.state_code}</span>
                             </div>
@@ -222,7 +222,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
               onClick={() => setFocusedField('checkIn')}
             >
               <div className="flex items-center gap-2 lg:gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Calendar className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -254,7 +254,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                 }}
               >
               <div className="flex items-center gap-2 lg:gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Calendar className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -280,7 +280,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
               </div>
               {nights > 0 && (
                 <div className="mt-1 lg:mt-2">
-                  <p className="text-xs text-cyan-600 ml-12 md:ml-14">{nights} {nights === 1 ? 'Night' : 'Nights'}</p>
+                  <p className="text-xs text-orange-600 ml-12 md:ml-14">{nights} {nights === 1 ? 'Night' : 'Nights'}</p>
                 </div>
               )}
             </div>
@@ -297,7 +297,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Users className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div className="flex-1 min-w-0">
@@ -323,7 +323,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                 <div className="flex items-center justify-between mb-5 pb-5 border-b border-gray-200">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Home className="w-4 h-4 md:w-5 md:h-5 text-cyan-600" />
+                      <Home className="w-4 h-4 md:w-5 md:h-5 text-orange-600" />
                       <span className="font-medium text-sm md:text-base">Rooms</span>
                     </div>
                     <p className="text-xs md:text-sm text-gray-500">Number of rooms</p>
@@ -336,7 +336,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         setRooms(Math.max(1, rooms - 1));
                       }}
                       disabled={rooms <= 1}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
                     >
                       -
                     </button>
@@ -347,7 +347,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         e.stopPropagation();
                         setRooms(rooms + 1);
                       }}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
                     >
                       +
                     </button>
@@ -368,7 +368,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         setAdults(Math.max(1, adults - 1));
                       }}
                       disabled={adults <= 1}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
                     >
                       -
                     </button>
@@ -379,7 +379,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         e.stopPropagation();
                         setAdults(adults + 1);
                       }}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
                     >
                       +
                     </button>
@@ -400,7 +400,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         setChildren(Math.max(0, children - 1));
                       }}
                       disabled={children <= 0}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center text-lg"
                     >
                       -
                     </button>
@@ -411,7 +411,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                         e.stopPropagation();
                         setChildren(children + 1);
                       }}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
+                      className="w-9 h-9 md:w-10 md:h-10 rounded-lg border-2 border-orange-500 text-orange-600 hover:bg-orange-50 transition-colors cursor-pointer flex items-center justify-center text-lg"
                     >
                       +
                     </button>
@@ -424,7 +424,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
                     e.stopPropagation();
                     setShowGuestsDropdown(false);
                   }}
-                  className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 md:py-4 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all cursor-pointer text-sm md:text-base"
+                  className="w-full mt-4 bg-orange-500 text-white py-3 md:py-4 rounded-lg hover:bg-orange-600 transition-all cursor-pointer text-sm md:text-base"
                 >
                   Done
                 </button>
@@ -437,7 +437,7 @@ export default function SearchBox({ variant = 'hero' }: SearchBoxProps) {
         <div className="flex items-center p-2 md:p-3">
           <button
             type="submit"
-            className="w-full lg:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 md:px-10 py-4 md:py-5 rounded-xl lg:rounded-r-2xl lg:rounded-l-none hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/30 cursor-pointer hover:scale-105 active:scale-95 text-base md:text-lg"
+            className="w-full lg:w-auto bg-orange-500 text-white px-6 md:px-10 py-4 md:py-5 rounded-xl lg:rounded-r-2xl lg:rounded-l-none hover:bg-orange-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg border-2 border-orange-400 cursor-pointer hover:scale-105 active:scale-95 text-base md:text-lg font-semibold"
           >
             <Search className="w-5 h-5 md:w-6 md:h-6" />
             <span>Search</span>

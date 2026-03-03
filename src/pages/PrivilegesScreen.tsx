@@ -104,7 +104,7 @@ export default function PrivilegesScreen() {
         <h2 className="text-2xl font-black">Privilege Management</h2>
 
         <Button
-          className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+          className="bg-orange-500 text-white hover:bg-orange-600"
           onClick={() => {
             setForm({ name: "", status: 1 });
             setEditingId(null);
@@ -189,7 +189,7 @@ export default function PrivilegesScreen() {
                     setForm({ ...form, name: e.target.value.replace(/[^a-zA-Z\s]/g, '') });
                     setPrivilegeErrors({ ...privilegeErrors, name: undefined });
                   }}
-                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors"
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-500 transition-colors"
                 />
                 {privilegeErrors.name && <p className="text-sm text-red-600 mt-1">{privilegeErrors.name}</p>}
               </div>
@@ -205,7 +205,7 @@ export default function PrivilegesScreen() {
                       setForm({ ...form, code: e.target.value });
                       setPrivilegeErrors({ ...privilegeErrors, code: undefined });
                     }}
-                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-cyan-500 transition-colors"
+                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-500 transition-colors"
                   />
                   {privilegeErrors.code && <p className="text-sm text-red-600 mt-1">{privilegeErrors.code}</p>}
                 </div>
@@ -241,7 +241,7 @@ export default function PrivilegesScreen() {
                 <Button
                   variant="primary"
                   fullWidth
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700"
+                  className="bg-orange-500 text-white hover:bg-orange-600"
                   onClick={editingId ? handleUpdate : handleCreate}
                 >
                   {editingId ? "Update" : "Create"}

@@ -12,7 +12,7 @@ export default function DashboardFooter() {
           {/* Left Section */}
           <div className="text-center md:text-left">
             <p className="text-xs sm:text-sm text-white/80">
-              © {currentYear} <span className="font-bold">MOTELTRIPS.COM</span>. All rights reserved.
+              © {currentYear} <span className="font-bold">TRIPWAYS.COM</span>. All rights reserved.
             </p>
           </div>
 
