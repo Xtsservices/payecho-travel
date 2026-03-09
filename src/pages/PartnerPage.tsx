@@ -13,37 +13,37 @@ const benefits = [
     icon: TrendingUp,
     title: 'Increase Revenue',
     description: 'Reach thousands of travelers actively searching for accommodations',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   },
   {
     icon: Users,
     title: 'Expand Customer Base',
     description: 'Connect with new guests from across the country',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   },
   {
     icon: Globe,
     title: 'Online Visibility',
     description: 'Showcase your property to a wider audience with premium listings',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   },
   {
     icon: BarChart3,
     title: 'Real-Time Analytics',
     description: 'Track bookings, revenue, and customer insights with our dashboard',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   },
   {
     icon: Zap,
     title: 'Instant Bookings',
     description: 'Automated booking system reduces manual work and errors',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   },
   {
     icon: Shield,
     title: 'Secure Payments',
     description: 'Safe and reliable payment processing with guaranteed payouts',
-    color: 'from-cyan-500 to-blue-600'
+    color: 'orange-500'
   }
 ];
 
@@ -530,7 +530,7 @@ export default function PartnerPage() {
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+          className="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
@@ -557,7 +557,7 @@ export default function PartnerPage() {
         </motion.p>
 
         <motion.p
-          className="text-xl font-semibold text-cyan-600 mb-8"
+          className="text-xl font-semibold text-orange-600 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
@@ -581,7 +581,7 @@ export default function PartnerPage() {
         >
           <button
             onClick={() => window.location.href = "/"}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:scale-105 transition-all shadow-lg font-semibold text-lg"
+            className="bg-orange-500 text-white px-8 py-4 rounded-xl hover:scale-105 transition-all shadow-lg font-semibold text-lg"
           >
             Back to Home
           </button>
@@ -597,7 +597,7 @@ export default function PartnerPage() {
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-700">
           <motion.div
             className="absolute top-20 left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"
             animate={{
@@ -666,7 +666,7 @@ export default function PartnerPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Join MotelTrips.com and reach thousands of travelers
+            Join Tripways.com and reach thousands of travelers
           </motion.p>
 
           <motion.div
@@ -690,7 +690,7 @@ export default function PartnerPage() {
 
           <motion.a
             href="#apply"
-            className="inline-flex items-center gap-3 bg-white text-cyan-600 px-10 py-5 rounded-2xl font-black text-xl shadow-2xl cursor-pointer"
+            className="inline-flex items-center gap-3 bg-white text-orange-600 px-10 py-5 rounded-2xl font-black text-xl shadow-2xl cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -736,7 +736,7 @@ export default function PartnerPage() {
               <Sparkles className="w-4 h-4" />
               <span className="font-semibold">PARTNER BENEFITS</span>
             </motion.div>
-            <h2 className="text-5xl mb-4 font-black">Why Partner With MotelTrips?</h2>
+            <h2 className="text-5xl mb-4 font-black">Why Partner With Tripways?</h2>
             <p className="text-xl text-gray-600">Unlock powerful tools to grow your motel business</p>
           </motion.div>
 
@@ -757,11 +757,11 @@ export default function PartnerPage() {
                 >
                   {/* Gradient background on hover */}
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                    className={`absolute inset-0 bg-${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
                   />
 
                   <motion.div
-                    className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                    className={`w-16 h-16 bg-${benefit.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -778,7 +778,7 @@ export default function PartnerPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 bg-gradient-to-br from-cyan-500 to-blue-600 text-white relative overflow-hidden">
+      <section className="py-24 px-6 bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 text-white relative overflow-hidden">
         <motion.div
           className="absolute top-0 left-0 w-full h-full opacity-10"
           animate={{
@@ -823,7 +823,7 @@ export default function PartnerPage() {
                   </div>
 
                   <div className="relative z-10">
-                    <div className="w-12 h-12 bg-white text-cyan-600 rounded-xl flex items-center justify-center mb-4 font-black text-xl">
+                    <div className="w-12 h-12 bg-white text-orange-600 rounded-xl flex items-center justify-center mb-4 font-black text-xl">
                       {step.number}
                     </div>
                     <h3 className="text-2xl mb-3 font-black">{step.title}</h3>
@@ -860,14 +860,14 @@ export default function PartnerPage() {
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-4 bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-2xl border border-cyan-200"
+                className="flex items-center gap-4 bg-orange-50 p-6 rounded-2xl border border-orange-200"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ x: 5, scale: 1.02 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shrink-0">
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 <span className="font-semibold text-gray-800">{feature.text}</span>
@@ -896,7 +896,7 @@ export default function PartnerPage() {
             <div className="grid md:grid-cols-2 gap-4 mb-4">
 
               <div>
-                <label className="font-semibold">Motel Name <span className="text-red-500">*</span></label>
+                <label className="font-semibold">Tripways Name <span className="text-red-500">*</span></label>
                 <input
                   type="text"
                   name="motel_name"
@@ -1260,7 +1260,7 @@ export default function PartnerPage() {
             {/* SUBMIT */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-xl font-bold"
+              className="w-full bg-orange-500 text-white py-4 rounded-xl font-bold"
             >
               Submit Application
             </button>
@@ -1293,7 +1293,7 @@ export default function PartnerPage() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <badge.icon className="w-8 h-8 text-white" />
                 </div>
                 <p className="font-semibold text-gray-800">{badge.text}</p>

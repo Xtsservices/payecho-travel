@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { X, LogOut, LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 // import logo from 'figma:asset/00d09e71b1640633d6e9a787381b574f41ce5e2c.png';
-import logo from '../assets/logo.png';
+import logo from '../assets/trip.png';
 
 export interface NavItem {
   id: string;
@@ -42,21 +42,21 @@ export default function DashboardSidebar({
 
       {/* Sidebar */}
       <motion.aside
-        className={`bg-gradient-to-b from-gray-900 via-blue-900 to-cyan-900 text-white fixed lg:sticky top-0 h-screen z-50 transition-all duration-300 ${
+        className={`bg-gradient-to-b from-orange-100 via-orange-200 to-orange-300 text-gray-800 fixed lg:sticky top-0 h-screen z-50 transition-all duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } w-64 lg:w-20 xl:w-64`}
       >
         {/* Logo Header */}
-        <div className="p-3 flex items-center justify-between border-b border-white/10">
+        <div className="p-3 flex items-center justify-between border-b border-orange-400/40">
           <img 
             src={logo} 
-            alt="MotelTrips Logo" 
+            alt="Tripways Logo" 
             className="h-7 cursor-pointer block xl:block lg:hidden" 
             onClick={() => navigate('/')}
           />
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors cursor-pointer lg:hidden"
+            className="p-1.5 hover:bg-orange-400/30 rounded-lg transition-colors cursor-pointer lg:hidden"
           >
             <X className="w-4 h-4" />
           </button>
@@ -64,7 +64,7 @@ export default function DashboardSidebar({
 
         {/* User Section (optional) */}
         {userSection && (
-          <div className="p-3 border-b border-white/10">
+          <div className="p-3 border-b border-orange-400/40">
             {userSection}
           </div>
         )}
@@ -80,8 +80,8 @@ export default function DashboardSidebar({
               }}
               className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg transition-all cursor-pointer ${
                 activeItem === item.id
-                  ? 'bg-white/20 shadow-lg'
-                  : 'hover:bg-white/10'
+                  ? 'bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg text-white border border-orange-400'
+                  : 'hover:bg-orange-400/30 text-gray-800'
               }`}
               whileHover={{ x: 5 }}
               whileTap={{ scale: 0.95 }}
@@ -93,10 +93,10 @@ export default function DashboardSidebar({
         </nav>
 
         {/* Logout Button */}
-        <div className="absolute bottom-0 w-full p-3 border-t border-white/10">
+        <div className="absolute bottom-0 w-full p-3 border-t border-orange-400/40">
           <motion.button
             onClick={onLogout}
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-red-500/20 transition-all cursor-pointer"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-orange-400/30 transition-all cursor-pointer text-gray-800"
             whileHover={{ x: 5 }}
             whileTap={{ scale: 0.95 }}
           >

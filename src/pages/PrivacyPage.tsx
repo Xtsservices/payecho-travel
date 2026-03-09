@@ -284,7 +284,7 @@ export default function PrivacyPage() {
               <div>
                 <h2 className="text-2xl mb-3 font-black text-gray-900">Your Privacy Matters</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Your privacy and the security of your information are extremely important to us. By using MotelTrips.com, you trust us with your data, and we take that responsibility seriously. This Privacy & Cookies Policy explains how we collect, use, share, store, and protect your personal data when you use our Site, services, and related communications.
+                  Your privacy and the security of your information are extremely important to us. By using Tripways.com, you trust us with your data, and we take that responsibility seriously. This Privacy & Cookies Policy explains how we collect, use, share, store, and protect your personal data when you use our Site, services, and related communications.
                 </p>
               </div>
             </div>

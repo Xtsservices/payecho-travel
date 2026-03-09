@@ -243,7 +243,7 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Welcome to MotelTrips.com. These Terms and Conditions govern your access to and use of our Platform, including searching, viewing, reserving, purchasing, booking, or modifying travel services. By accessing and using MotelTrips.com, you agree to be legally bound by these Terms and our Privacy Policy. If you do not agree to these terms, please do not use our services.
+              Welcome to Tripways.com. These Terms and Conditions govern your access to and use of our Platform, including searching, viewing, reserving, purchasing, booking, or modifying travel services. By accessing and using Tripways.com, you agree to be legally bound by these Terms and our Privacy Policy. If you do not agree to these terms, please do not use our services.
             </p>
           </div>
 
@@ -275,7 +275,7 @@ export default function TermsPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="mailto:support@moteltrips.com"
+                href="mailto:support@tripways.com"
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all"
               >
                 Email Support

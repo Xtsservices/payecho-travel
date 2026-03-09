@@ -2,7 +2,7 @@ import SearchBox from '../components/SearchBox';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { Card } from '../components/ui';
-import { MapPin, Star, Shield, Clock, TrendingUp, Wifi, Coffee, Tv, ParkingCircle, User, CheckCircle, Award, Heart, Zap, DollarSign, Phone } from 'lucide-react';
+import { MapPin, Star, Shield, Clock, TrendingUp, Wifi, Coffee, Tv, ParkingCircle, User, CheckCircle, Award, Heart, Zap, DollarSign, Phone, IndianRupee } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import { useState } from 'react';
@@ -12,91 +12,91 @@ const popularDestinations = [
     name: 'Beach Resorts',
     image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHJlc29ydHxlbnwxfHx8fDE3NjQ3MDQyOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 45,
-    price: '$89'
+    price: '₹6,500'
   },
   {
-    name: 'Mountain Getaways',
+    name: 'Hill Station Retreats',
     image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMHJlc29ydHxlbnwxfHx8fDE3NjQ3NDc1OTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 32,
-    price: '$75'
+    price: '₹5,500'
   },
   {
-    name: 'City Motels',
+    name: 'City Hotels',
     image: 'https://images.unsplash.com/photo-1614568112072-770f89361490?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXR5JTIwaG90ZWx8ZW58MXx8fHwxNzY0NzM0OTYyfDA&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 78,
-    price: '$95'
+    price: '₹7,000'
   },
   {
     name: 'Highway Stops',
     image: 'https://images.unsplash.com/photo-1566126727069-6df012224264?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaWdod2F5JTIwbW90ZWwlMjB2aW50YWdlfGVufDF8fHx8MTc2NDc0NzU5OHww&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 56,
-    price: '$65'
+    price: '₹4,500'
   },
   {
-    name: 'Desert Retreats',
+    name: 'Heritage Properties',
     image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNlcnQlMjBob3RlbHxlbnwxfHx8fDE3MzM0OTk2MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 28,
-    price: '$70'
+    price: '₹5,200'
   },
   {
     name: 'Lakeside Stays',
     image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYWtlJTIwaG90ZWx8ZW58MXx8fHwxNzMzNDk5NjM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     motels: 41,
-    price: '$82'
+    price: '₹6,000'
   }
 ];
 
 const featuredMotels = [
   {
-    name: 'Sunset Bay Motel',
-    location: 'Miami Beach, FL',
+    name: 'Charminar Heritage Hotel',
+    location: 'Hyderabad, Telangana',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHJvb218ZW58MXx8fHwxNzMzNDk5NjM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     rating: 4.8,
     reviews: 234,
-    price: '$89',
+    price: '₹6,500',
     amenities: ['Wifi', 'Pool', 'Parking', 'Breakfast']
   },
   {
-    name: 'Mountain View Lodge',
-    location: 'Aspen, CO',
+    name: 'Golconda Fort View Lodge',
+    location: 'Hyderabad, Telangana',
     image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MXx8fHwxNzMzNDk5NjM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     rating: 4.9,
     reviews: 189,
-    price: '$95',
+    price: '₹7,000',
     amenities: ['Wifi', 'Spa', 'Restaurant', 'Parking']
   },
   {
-    name: 'Highway Inn Express',
-    location: 'Route 66, AZ',
+    name: 'Shamshabad Airport Inn',
+    location: 'Hyderabad, Telangana',
     image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxob3RlbCUyMHJvb218ZW58MXx8fHwxNzMzNDk5NjM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     rating: 4.7,
     reviews: 156,
-    price: '$65',
+    price: '₹4,800',
     amenities: ['Wifi', 'Parking', 'Coffee', 'Pet Friendly']
   }
 ];
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    location: 'New York, NY',
+    name: 'Vamsi Krishna',
+    location: 'Gachibowli, Hyderabad',
     rating: 5,
-    text: 'Amazing experience! Found the perfect motel for my road trip. Clean rooms, great price, and easy booking process.',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTczMzQ5OTYzNnww&ixlib=rb-4.1.0&q=80&w=400'
-  },
-  {
-    name: 'Michael Chen',
-    location: 'Los Angeles, CA',
-    rating: 5,
-    text: 'Best motel booking platform! The search filters made it so easy to find exactly what I needed. Highly recommended!',
+    text: 'Amazing experience! Found the perfect hotel for my business trip. Clean rooms, great price, and easy booking process.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3MzM0OTk2MzZ8MA&ixlib=rb-4.1.0&q=80&w=400'
   },
   {
-    name: 'Emily Rodriguez',
-    location: 'Chicago, IL',
+    name: 'Satya Reddy',
+    location: 'HITEC City, Hyderabad',
     rating: 5,
-    text: 'I use MotelTrips for all my business travels. Reliable, affordable, and the customer service is outstanding!',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTczMzQ5OTYzNnww&ixlib=rb-4.1.0&q=80&w=400'
+    text: 'Best hotel booking platform! The search filters made it so easy to find exactly what I needed. Highly recommended!',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3MzM0OTk2MzZ8MA&ixlib=rb-4.1.0&q=80&w=400'
+  },
+  {
+    name: 'Prasanth Kumar',
+    location: 'Madhapur, Hyderabad',
+    rating: 5,
+    text: 'I use TripWays for all my business travels. Reliable, affordable, and the customer service is outstanding!',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3MzM0OTk2MzZ8MA&ixlib=rb-4.1.0&q=80&w=400'
   }
 ];
 
@@ -109,7 +109,7 @@ export default function HomePage() {
     "name": "MOTELTRIPS.COM",
     "description": "Find and book comfortable motels at unbeatable prices across thousands of locations",
     "url": "https://moteltrips.com",
-    "priceRange": "$65-$150",
+    "priceRange": "₹4,500-₹12,000",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -141,7 +141,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-5 lg:mb-6 tracking-tight px-4">
-              Find Your <span className="text-cyan-400">Perfect Stay</span>
+              Find Your <span className="text-orange-400">Perfect Stay</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-6 sm:mb-7 lg:mb-8 font-light max-w-2xl mx-auto px-4">
               Discover comfortable motels at unbeatable prices across thousands of locations
@@ -153,7 +153,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
                 <span className="whitespace-nowrap">Secure Booking</span>
               </motion.div>
               <motion.div 
@@ -162,7 +162,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
                 <span className="whitespace-nowrap">24/7 Support</span>
               </motion.div>
               <motion.div 
@@ -171,7 +171,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
                 <span className="whitespace-nowrap">Trusted by 100K+</span>
               </motion.div>
               <motion.div 
@@ -180,7 +180,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                <IndianRupee className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
                 <span className="whitespace-nowrap">Best Price</span>
               </motion.div>
             </div>
@@ -197,9 +197,9 @@ export default function HomePage() {
       </div>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-cyan-500 to-blue-600">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-orange-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center text-gray-800">
             {[
               { number: '10,000+', label: 'Motels Listed', icon: MapPin },
               { number: '100K+', label: 'Happy Travelers', icon: User },
@@ -214,10 +214,10 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20">
-                  <stat.icon className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 mx-auto mb-3 sm:mb-4 text-white" />
-                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-1 sm:mb-2">{stat.number}</div>
-                  <div className="text-white/90 text-xs sm:text-sm lg:text-base">{stat.label}</div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl lg:rounded-2xl p-5 sm:p-6 lg:p-8 border border-orange-300 shadow-md">
+                  <stat.icon className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 mx-auto mb-3 sm:mb-4 text-orange-600" />
+                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-1 sm:mb-2 text-gray-800 font-bold">{stat.number}</div>
+                  <div className="text-gray-700 text-xs sm:text-sm lg:text-base font-medium">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -234,7 +234,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent px-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent px-4">
               Popular Destinations
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-4">
@@ -293,8 +293,8 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xs sm:text-sm uppercase tracking-wider text-cyan-600 mb-2 sm:mb-3">Featured Properties</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">Top Rated <span className="text-cyan-600">Motels</span></h2>
+            <p className="text-xs sm:text-sm uppercase tracking-wider text-orange-600 mb-2 sm:mb-3">Featured Properties</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">Top Rated <span className="text-orange-600">Motels</span></h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto px-4">Handpicked motels loved by our travelers</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
@@ -361,18 +361,18 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xs sm:text-sm uppercase tracking-wider text-cyan-600 mb-2 sm:mb-3">Benefits</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">Why Choose <span className="text-cyan-600">MotelTrips?</span></h2>
+            <p className="text-xs sm:text-sm uppercase tracking-wider text-orange-600 mb-2 sm:mb-3">Benefits</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">Why Choose <span className="text-orange-600">Trip ways?</span></h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto px-4">Experience the difference with our premium features</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {[
-              { icon: MapPin, title: 'Best Locations', desc: 'Find motels perfectly positioned on your route with our smart location finder', gradient: 'from-cyan-500 to-blue-600' },
-              { icon: DollarSign, title: 'Best Price Guarantee', desc: 'Competitive rates and exclusive deals you won\'t find anywhere else', gradient: 'from-cyan-500 to-blue-600' },
-              { icon: Shield, title: 'Secure Booking', desc: 'Simple, safe and secure reservation process with 100% protection', gradient: 'from-cyan-500 to-blue-600' },
-              { icon: Zap, title: 'Instant Confirmation', desc: 'Get instant booking confirmation via email and SMS notifications', gradient: 'from-cyan-500 to-blue-600' },
-              { icon: Clock, title: '24/7 Support', desc: 'Round-the-clock customer service to help you anytime, anywhere', gradient: 'from-cyan-500 to-blue-600' },
-              { icon: Award, title: 'Verified Reviews', desc: 'Read authentic reviews from real travelers to make informed decisions', gradient: 'from-cyan-500 to-blue-600' }
+              { icon: MapPin, title: 'Best Locations', desc: 'Find motels perfectly positioned on your route with our smart location finder', gradient: 'from-orange-500 to-red-600' },
+              { icon: IndianRupee, title: 'Best Price Guarantee', desc: 'Competitive rates and exclusive deals you won\'t find anywhere else', gradient: 'from-orange-500 to-red-600' },
+              { icon: Shield, title: 'Secure Booking', desc: 'Simple, safe and secure reservation process with 100% protection', gradient: 'from-orange-500 to-red-600' },
+              { icon: Zap, title: 'Instant Confirmation', desc: 'Get instant booking confirmation via email and SMS notifications', gradient: 'from-orange-500 to-red-600' },
+              { icon: Clock, title: '24/7 Support', desc: 'Round-the-clock customer service to help you anytime, anywhere', gradient: 'from-orange-500 to-red-600' },
+              { icon: Award, title: 'Verified Reviews', desc: 'Read authentic reviews from real travelers to make informed decisions', gradient: 'from-orange-500 to-red-600' }
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -405,8 +405,8 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xs sm:text-sm uppercase tracking-wider text-cyan-600 mb-2 sm:mb-3">Testimonials</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">What Our <span className="text-cyan-600">Travelers Say</span></h2>
+            <p className="text-xs sm:text-sm uppercase tracking-wider text-orange-600 mb-2 sm:mb-3">Testimonials</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4 tracking-tight px-4">What Our <span className="text-orange-600">Travelers Say</span></h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto px-4">Real experiences from real travelers</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
@@ -447,7 +447,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-orange-200 text-gray-800">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -455,14 +455,14 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Heart className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-5 sm:mb-6 text-white" />
+            <Heart className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-5 sm:mb-6 text-orange-600" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-4 sm:mb-5 lg:mb-6 tracking-tight px-4">Ready to Start Your Journey?</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-7 lg:mb-8 text-white/90 font-light px-4">Join thousands of satisfied travelers and find your perfect motel today</p>
+            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-7 lg:mb-8 text-gray-700 font-light px-4">Join thousands of satisfied travelers and find your perfect motel today</p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center px-4">
-              <button className="bg-white text-cyan-600 px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 rounded-lg sm:rounded-xl hover:bg-gray-50 transition-all shadow-lg text-base sm:text-lg">
+              <button className="bg-orange-600 text-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 rounded-lg sm:rounded-xl hover:bg-orange-700 transition-all shadow-lg text-base sm:text-lg font-semibold">
                 Browse Motels
               </button>
-              <button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 rounded-lg sm:rounded-xl hover:bg-white/20 transition-all text-base sm:text-lg flex items-center justify-center gap-2">
+              <button className="bg-white border-2 border-orange-400 text-orange-600 px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 rounded-lg sm:rounded-xl hover:bg-orange-50 transition-all text-base sm:text-lg flex items-center justify-center gap-2 font-semibold">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 Contact Us
               </button>

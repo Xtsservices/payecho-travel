@@ -6,7 +6,8 @@ import {
   Building2, Calendar, CheckCircle, DollarSign, TrendingUp,
   Users, Shield, Key, Database, Menu, X, Eye, Check, XCircle,
   Mail, Phone, MapPin, FileText, Image as ImageIcon, Settings,
-  Plus, Pencil, Trash2, CheckSquare, Download, ChevronDown
+  Plus, Pencil, Trash2, CheckSquare, Download, ChevronDown,
+  IndianRupee
 } from 'lucide-react';
 import { Button, IconButton, Input, Select, Modal, StatCard, Tab, Badge, Avatar } from '../components/ui';
 import { toast } from 'react-toastify';
@@ -556,15 +557,15 @@ const getApprovalStatusClass = (status: number) => {
   }, [activeTab]);
 
   const stats = dashboardStats ? [
-    { label: 'Total Motels', value: String(dashboardStats.total_motels), icon: Building2, color: 'from-cyan-500 to-blue-600' },
-    { label: 'Pending Approvals', value: String(dashboardStats.pending_approvals), icon: CheckCircle, color: 'from-orange-500 to-red-500' },
+    { label: 'Total Motels', value: String(dashboardStats.total_motels), icon: Building2, color: 'from-orange-500 to-red-500' },
+    { label: 'Pending Approvals', value: String(dashboardStats.pending_approvals), icon: CheckCircle, color: 'from-cyan-500 to-blue-600' },
     { label: 'Total Bookings', value: String(dashboardStats.total_bookings), icon: Calendar, color: 'from-green-500 to-emerald-600' },
-    { label: 'Revenue', value: dashboardStats.revenue, icon: DollarSign, color: 'from-purple-500 to-pink-500' },
+    { label: 'Revenue', value: dashboardStats.revenue?.replace('$', '₹') || '₹0.00', icon: IndianRupee, color: 'from-purple-500 to-pink-500' },
   ] : [
-    { label: 'Total Motels', value: '0', icon: Building2, color: 'from-cyan-500 to-blue-600' },
-    { label: 'Pending Approvals', value: '0', icon: CheckCircle, color: 'from-orange-500 to-red-500' },
+    { label: 'Total Motels', value: '0', icon: Building2, color: 'from-orange-500 to-red-500' },
+    { label: 'Pending Approvals', value: '0', icon: CheckCircle, color: 'from-cyan-500 to-blue-600' },
     { label: 'Total Bookings', value: '0', icon: Calendar, color: 'from-green-500 to-emerald-600' },
-    { label: 'Revenue', value: '$0.00', icon: DollarSign, color: 'from-purple-500 to-pink-500' },
+    { label: 'Revenue', value: '₹0.00', icon: IndianRupee, color: 'from-purple-500 to-pink-500' },
   ];
 
   const tabs = [
@@ -1234,14 +1235,14 @@ const submitRejectMotel = async () => {
                       <motion.button
                         key={action.label}
                         onClick={action.action}
-                        className="flex flex-col items-center gap-2 p-4 border-2 border-gray-200 rounded-xl hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer"
+                        className="flex flex-col items-center gap-2 p-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all cursor-pointer"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <action.icon className="w-8 h-8 text-cyan-600" />
+                        <action.icon className="w-8 h-8 text-orange-600" />
                         <span className="text-sm font-semibold text-center">{action.label}</span>
                       </motion.button>
                     ))}
@@ -1274,7 +1275,7 @@ const submitRejectMotel = async () => {
                         setMotelSearchQuery(e.target.value);
                         setMotelCurrentPage(1);
                       }}
-                      className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none"
+                      className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -1288,7 +1289,7 @@ const submitRejectMotel = async () => {
                     }}
                     className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                       motelApprovalFilter === null
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                        ? 'bg-orange-500 text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -1301,7 +1302,7 @@ const submitRejectMotel = async () => {
                     }}
                     className={`px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 ${
                       motelApprovalFilter === 0
-                        ? 'bg-orange-100 text-orange-700 border-2 border-orange-500'
+                        ? 'bg-orange-100 text-orange-600 border-2 border-orange-500'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -1398,7 +1399,7 @@ const submitRejectMotel = async () => {
                                     ? "bg-green-100 text-green-700"
                                     : motel.approval_status === 2
                                     ? "bg-red-100 text-red-700"
-                                    : "bg-orange-100 text-orange-700"
+                                    : "bg-orange-100 text-orange-600"
                                 }`}
                               >
                                 {motel.approval_status === 1
@@ -1481,7 +1482,7 @@ const submitRejectMotel = async () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="bg-white rounded-2xl shadow-lg p-6 mt-4 border-t-4 border-cyan-500"
+                      className="bg-white rounded-2xl shadow-lg p-6 mt-4 border-t-4 border-orange-500"
                     >
                       <div className="flex items-center justify-between">
                         <div className="text-sm text-gray-600">
@@ -1494,7 +1495,7 @@ const submitRejectMotel = async () => {
                             className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                               motelCurrentPage === 1
                                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                                : 'bg-cyan-100 text-cyan-700 hover:bg-cyan-200'
+                                : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
                             }`}
                           >
                             ← Prev
@@ -1505,7 +1506,7 @@ const submitRejectMotel = async () => {
                               onClick={() => setMotelCurrentPage(page)}
                               className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                                 motelCurrentPage === page
-                                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                                  ? 'bg-orange-500 text-white shadow-md'
                                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                               }`}
                             >
@@ -1518,7 +1519,7 @@ const submitRejectMotel = async () => {
                             className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                               motelCurrentPage === totalPages
                                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                                : 'bg-cyan-100 text-cyan-700 hover:bg-cyan-200'
+                                : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
                             }`}
                           >
                             Next →
@@ -1556,7 +1557,7 @@ const submitRejectMotel = async () => {
                         e.preventDefault();
                       }
                     }}
-                    className="flex-1 min-w-xs px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none"
+                    className="flex-1 min-w-xs px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
                   />
                   
                   <input
@@ -1564,7 +1565,7 @@ const submitRejectMotel = async () => {
                     placeholder="Check-in date from"
                     value={bookingCheckInFilter}
                     onChange={(e) => setBookingCheckInFilter(e.target.value)}
-                    className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none"
+                    className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
                   />
                   
                   <input
@@ -1573,7 +1574,7 @@ const submitRejectMotel = async () => {
                     value={bookingCheckOutFilter}
                     onChange={(e) => setBookingCheckOutFilter(e.target.value)}
                     min={bookingCheckInFilter || undefined}
-                    className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none"
+                    className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
                   />
                   
                   {(bookingCheckInFilter || bookingCheckOutFilter) && (
@@ -1680,7 +1681,7 @@ const submitRejectMotel = async () => {
                         
                         return paginatedBookings.map((booking, index) => {
                           const statusColor = booking.status === 1 ? 'bg-green-100 text-green-700' :
-                                            booking.status === 0 ? 'bg-orange-100 text-orange-700' :
+                                            booking.status === 0 ? 'bg-orange-100 text-orange-600' :
                                             'bg-red-100 text-red-700';
                           return (
                             <motion.tr
@@ -1691,12 +1692,12 @@ const submitRejectMotel = async () => {
                               transition={{ delay: index * 0.1 }}
                             >
                               <td className="py-3 px-4 font-semibold text-gray-900">{booking.id}</td>
-                              <td className="py-3 px-4 font-semibold text-cyan-600">{booking.reference}</td>
+                              <td className="py-3 px-4 font-semibold text-orange-600">{booking.reference}</td>
                               <td className="py-3 px-4">{booking.motel.charAt(0).toUpperCase() + booking.motel.slice(1)}</td>
                               <td className="py-3 px-4 text-gray-600">{booking.guest}</td>
                               <td className="py-3 px-4 text-gray-600">{booking.checkIn}</td>
                               <td className="py-3 px-4 text-gray-600">{booking.checkOut}</td>
-                              <td className="py-3 px-4 font-semibold">{booking.amount}</td>
+                              <td className="py-3 px-4 font-semibold">{booking.amount?.toString().replace('$', '₹') || '₹0.00'}</td>
                               <td className="py-3 px-4">
                                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusColor}`}>
                                   {booking.statusLabel}
@@ -1784,7 +1785,7 @@ const submitRejectMotel = async () => {
                           onClick={() => setBookingCurrentPage(page)}
                           className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                             bookingCurrentPage === page
-                              ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                              ? 'bg-orange-500 text-white shadow-md'
                               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                           }`}
                         >
@@ -1832,14 +1833,14 @@ const submitRejectMotel = async () => {
                     placeholder="Search by name or role..."
                     value={userSearchQuery}
                     onChange={(e) => setUserSearchQuery(e.target.value)}
-                    className="flex-1 min-w-xs px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-cyan-500 focus:outline-none"
+                    className="flex-1 min-w-xs px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
                   />
                   
                   <button
                     onClick={() => setUserStatusFilter(null)}
                     className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                       userStatusFilter === null
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                        ? 'bg-orange-500 text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
@@ -2052,7 +2053,7 @@ const submitRejectMotel = async () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl shadow-lg p-6 mt-4 border-t-4 border-cyan-500"
+                  className="bg-white rounded-2xl shadow-lg p-6 mt-4 border-t-4 border-orange-500"
                 >
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-gray-600">
@@ -2065,7 +2066,7 @@ const submitRejectMotel = async () => {
                         className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                           userCurrentPage === 1
                             ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                            : 'bg-cyan-100 text-cyan-700 hover:bg-cyan-200'
+                            : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
                         }`}
                       >
                         ← Prev
@@ -2076,7 +2077,7 @@ const submitRejectMotel = async () => {
                           onClick={() => setUserCurrentPage(page)}
                           className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                             userCurrentPage === page
-                              ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                              ? 'bg-orange-500 text-white shadow-md'
                               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                           }`}
                         >
@@ -2089,7 +2090,7 @@ const submitRejectMotel = async () => {
                         className={`px-3 py-2 rounded-lg font-semibold transition-all ${
                           userCurrentPage === totalPages
                             ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                            : 'bg-cyan-100 text-cyan-700 hover:bg-cyan-200'
+                            : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
                         }`}
                       >
                         Next →
@@ -2111,7 +2112,7 @@ const submitRejectMotel = async () => {
               >
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-black">Role Management</h2>
-                  <Button onClick={() => setShowRoleModal(true)} className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
+                  <Button onClick={() => setShowRoleModal(true)} className="bg-orange-500 text-white hover:bg-orange-600">
                     + Create Role
                   </Button>
                 </div>
@@ -2120,13 +2121,13 @@ const submitRejectMotel = async () => {
                   {roles.map((role, index) => (
                     <motion.div
                       key={role.id}
-                      className="border-2 border-gray-200 rounded-xl p-4 hover:border-cyan-500 hover:shadow-md transition-all"
+                      className="border-2 border-gray-200 rounded-xl p-4 hover:border-orange-500 hover:shadow-md transition-all"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="flex items-start justify-between mb-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
                           <Shield className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex items-center gap-2">
@@ -2178,7 +2179,7 @@ const submitRejectMotel = async () => {
               >
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-black">Feature Management</h2>
-                  <Button onClick={() => { setShowFeatureModal(true); setEditingFeatureId(null); setNewFeature({ name: '', code: '', parent_id: null, status: 1 }); }} className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
+                  <Button onClick={() => { setShowFeatureModal(true); setEditingFeatureId(null); setNewFeature({ name: '', code: '', parent_id: null, status: 1 }); }} className="bg-orange-500 text-white hover:bg-orange-600 focus:bg-orange-600 active:bg-orange-700">
                     + Add Feature
                   </Button>
                 </div>
@@ -2213,7 +2214,7 @@ const submitRejectMotel = async () => {
                           </td>
                           <td className="py-3 px-4">
                             <div className="flex gap-2">
-                              <IconButton icon={Pencil} variant="secondary" ariaLabel="Edit feature" onClick={() => { setEditingFeatureId(f.id); setNewFeature({ name: f.name, code: f.code, parent_id: f.parent_id ?? null, status: f.status }); setShowFeatureModal(true); }} />
+                              <IconButton icon={Pencil} variant="warning" ariaLabel="Edit feature" onClick={() => { setEditingFeatureId(f.id); setNewFeature({ name: f.name, code: f.code, parent_id: f.parent_id ?? null, status: f.status }); setShowFeatureModal(true); }} />
                               <IconButton icon={Trash2} variant="danger" ariaLabel="Delete feature" onClick={async () => {
                                 try {
                                      await apiDelete(`/features/${f.id}`);
@@ -2252,7 +2253,7 @@ const submitRejectMotel = async () => {
                       <select
                         value={permissionRoleFilter || ''}
                         onChange={(e) => setPermissionRoleFilter(e.target.value || null)}
-                        className="w-full md:w-40 px-3 py-1.5 border-2 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full md:w-40 px-3 py-1.5 border-2 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-colors"
                       >
                         <option value="">All Roles</option>
                         {roles.map((role) => (
@@ -2262,7 +2263,7 @@ const submitRejectMotel = async () => {
                         ))}
                       </select>
                     </div>
-                    <Button onClick={() => setShowPermissionModal(true)} className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white h-fit">
+                    <Button onClick={() => setShowPermissionModal(true)} className="bg-orange-500 text-white hover:bg-orange-600 focus:bg-orange-600 active:bg-orange-700 h-fit">
                       + Create Permission
                     </Button>
                   </div>
@@ -2274,7 +2275,7 @@ const submitRejectMotel = async () => {
                     .map((permission, index) => (
                     <motion.div
                       key={permission.id}
-                      className="border-2 border-gray-200 rounded-2xl p-5 hover:border-cyan-500 hover:shadow-md transition-all"
+                      className="border-2 border-gray-200 rounded-2xl p-5 hover:border-orange-500 hover:shadow-md transition-all"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
@@ -2282,13 +2283,13 @@ const submitRejectMotel = async () => {
                       <div className="flex flex-col lg:flex-row lg:items-start gap-4">
                         {/* Left Section - Icon & Info */}
                         <div className="flex items-start gap-4 flex-1">
-                          <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
                             <Key className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-wrap items-center gap-2 mb-2">
                               <h3 className="font-black text-lg">{permission.name}</h3>
-                              <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-xs font-semibold">
+                              <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-semibold">
                                 {permission.module}
                               </span>
                             </div>
@@ -2296,8 +2297,8 @@ const submitRejectMotel = async () => {
                             
                             {/* Role Badge */}
                             <div className="flex items-center gap-2">
-                              <Shield className="w-4 h-4 text-cyan-600" />
-                              <span className="text-xs font-semibold text-cyan-600">
+                              <Shield className="w-4 h-4 text-orange-600" />
+                              <span className="text-xs font-semibold text-orange-600">
                                 Role: {permission.role}
                               </span>
                             </div>
@@ -2323,7 +2324,7 @@ const submitRejectMotel = async () => {
                                 <div
                                   key={privilege.key}
                                   className={`px-2 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 ${
-                                    isActive ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-500'
+                                    isActive ? 'bg-orange-500 text-white shadow-md' : 'bg-gray-100 text-gray-500'
                                   }`}
                                   title={`${privilege.label}: ${isActive ? 'Enabled' : 'Disabled'}`}
                                 >
@@ -2339,14 +2340,14 @@ const submitRejectMotel = async () => {
                       {/* Action Buttons */}
                       <div className="flex gap-2 mt-4 pt-4 border-t border-gray-200">
                         <button
-                          className="px-4 py-2 bg-cyan-50 text-cyan-600 rounded-lg hover:bg-cyan-100 transition-colors text-sm font-semibold cursor-pointer flex items-center gap-2"
+                          className="px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 focus:bg-orange-200 active:bg-orange-300 transition-colors text-sm font-semibold cursor-pointer flex items-center gap-2"
                           onClick={() => handleEditPermission(permission)}
                         >
                           <Pencil className="w-4 h-4" />
                           Edit
                         </button>
                         <button
-                          className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors text-sm font-semibold cursor-pointer flex items-center gap-2"
+                          className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 focus:bg-red-200 active:bg-red-300 transition-colors text-sm font-semibold cursor-pointer flex items-center gap-2"
                           onClick={() => handleDeletePermission(permission.id)}
                         >
                           <Trash2 className="w-4 h-4" />

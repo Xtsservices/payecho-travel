@@ -42,7 +42,7 @@ export default function DashboardHeader({
             <Menu className="w-5 h-5" />
           </button>
           <div className="min-w-0">
-            <h1 className="text-sm sm:text-base font-black bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-sm sm:text-base font-black text-orange-600">
               {title}
             </h1>
             {subtitle && (
